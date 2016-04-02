@@ -5,8 +5,6 @@ import Answer from '../Answer/index.js'
 
 export default (props) => {
   return (
-    <Jumbotron className='home'>
       <InOut />
-    </Jumbotron>
   )
 }
