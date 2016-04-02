@@ -6,6 +6,8 @@ client.LRANGE = Bluebird.promisify(client.LRANGE)
 
 export const addNewAnswer = (answerObj) => {
   answerObj.id = Date.now()
+  answerObj.score = 0
+  answerObj.comments = []
   Object.keys(answerObj).forEach((prop) => {
     const value = typeof answerObj[prop] === 'object' ? JSON.stringify(answerObj[prop]) : answerObj[prop]
     client.HSET(answerObj.id, prop, value)
