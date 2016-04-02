@@ -13,10 +13,11 @@ import Bell from 'bell'
 import AuthCookie from 'hapi-auth-cookie'
 
 // server routes
-import Hello from './routes/Hello.js'
 import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
+import NewAnswer from './routes/NewAnswer.js'
+import GetAllAnswers from './routes/GetAllAnswers.js'
 import Login from './routes/Login.js'
 import UserDetails from './routes/UserDetails.js'
 
@@ -25,7 +26,7 @@ import { TwitterCookie, TwitterOauth } from './authStrategies/twitterAuthStrateg
 
 const ConnectionSettings = { port, routes: {cors: true} }
 const Plugins = [ Inert, Bell, AuthCookie ]
-const Routes = [ Login, Images, ReactUrls, Scripts, Hello, UserDetails ]
+const Routes = [ Login, UserDetails, NewAnswer, GetAllAnswers, Images, ReactUrls, Scripts ]
 
 server.connection(ConnectionSettings)
 server.register(Plugins, handlePlugins)

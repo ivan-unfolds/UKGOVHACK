@@ -12,7 +12,7 @@ export default (props) => {
     <Grid style={styles}>
       <Row>
         <Col xs={12}>
-          <h3>Get in touch via our repo!</h3>
+          <h3>Get in touch via RHINO our repo!</h3>
           <a href={repoLink} target='_blank'>Your repo link</a>
         </Col>
       </Row>
