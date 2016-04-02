@@ -16,6 +16,7 @@ export default {
           secret: cred.secret,
           screenName: cred.profile.displayName
         }
+        console.log(dataToSend)
         const jwToken = jwt.sign(dataToSend, JWT_SECRET)
         request.cookieAuth.set({'twitterCookie': jwToken})
         reply.redirect('/').state('reactCookie', 'user-logged-in')

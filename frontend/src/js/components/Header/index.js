@@ -9,6 +9,7 @@ export default class Header extends React.Component {
   }
 
   render () {
+    console.log(this.props)
     return (
       <div>
         <Navbar
@@ -37,7 +38,7 @@ export default class Header extends React.Component {
               })}
             </Nav>
           </Navbar.Collapse>
-          <p className='user-logged-in'>{this.props.auth ? 'Welcome ' + this.props.userDetails : ''}</p>
+          <p style={{color: 'yellow'}} className='user-logged-in'>{this.props.auth ? 'Welcome ' + this.props.userDetails.screenName + ', share your opinion' : ''}</p>
         </Navbar>
       </div>
     )
