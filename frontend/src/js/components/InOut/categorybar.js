@@ -23,10 +23,10 @@ export default class CategoryBar extends React.Component {
             <Button onClick={this.props.selectCategory.bind(null, 'freedom of movement')} bsStyle={this.styleToggle('freedom of movement', this.props.categories)}>Freedom of Movement</Button>
           </li>
           <li style={style}>
-            <Button onClick={this.props.selectCategory.bind(null, 'freedom of movement')} bsStyle={this.styleToggle('health', this.props.categories)}>Health</Button>
+            <Button onClick={this.props.selectCategory.bind(null, 'health')} bsStyle={this.styleToggle('health', this.props.categories)}>Health</Button>
           </li>
           <li style={style}>
-            <Button onClick={this.props.selectCategory.bind(null, 'freedom of movement')} bsStyle={this.styleToggle('economy', this.props.categories)}>Economy</Button>
+            <Button onClick={this.props.selectCategory.bind(null, 'economy')} bsStyle={this.styleToggle('economy', this.props.categories)}>Economy</Button>
           </li>
         </ul>
       </div>
