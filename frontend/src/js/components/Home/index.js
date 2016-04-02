@@ -1,5 +1,6 @@
 import React from 'react'
 import { Jumbotron } from 'react-bootstrap'
+import Answer from '../Answer/index.js'
 
 export default (props) => {
   return (
