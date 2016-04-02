@@ -9,21 +9,29 @@ import { handlePlugins, handleStart } from './helpers/server-helpers.js'
 
 // server plugins
 import Inert from 'inert'
+import Bell from 'bell'
+import AuthCookie from 'hapi-auth-cookie'
 
 // server routes
-import Hello from './routes/Hello.js'
 import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
 import NewAnswer from './routes/NewAnswer.js'
 import GetAllAnswers from './routes/GetAllAnswers.js'
+import Login from './routes/Login.js'
+import UserDetails from './routes/UserDetails.js'
+
+// auth strategies
+import { TwitterCookie, TwitterOauth } from './authStrategies/twitterAuthStrategies.js'
 
 const ConnectionSettings = { port, routes: {cors: true} }
-const Plugins = [ Inert ]
-const Routes = [ Hello, NewAnswer, GetAllAnswers, Images, ReactUrls, Scripts ]
+const Plugins = [ Inert, Bell, AuthCookie ]
+const Routes = [ Login, UserDetails, NewAnswer, GetAllAnswers, Images, ReactUrls, Scripts ]
 
 server.connection(ConnectionSettings)
 server.register(Plugins, handlePlugins)
+server.auth.strategy('twitter', 'bell', TwitterOauth)
+server.auth.strategy('session', 'cookie', TwitterCookie)
 server.route(Routes)
 server.start(handleStart)
 

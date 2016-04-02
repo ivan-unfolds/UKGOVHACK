@@ -1,6 +1,5 @@
 import React from 'react'
 import InOut from '../InOut/index.js'
-import { Jumbotron } from 'react-bootstrap'
 
 export default class Home extends React.Component {
 
@@ -29,9 +28,7 @@ export default class Home extends React.Component {
 
   render () {
     return (
-      <Jumbotron className='home'>
-        <InOut />
-      </Jumbotron>
+      <InOut />
     )
   }
 }
