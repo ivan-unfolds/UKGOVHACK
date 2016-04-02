@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 export default class Instructions extends React.Component {
-  render() {
+  render () {
     return (
       <Grid>
         <Row>
