@@ -53,7 +53,7 @@ export default class InOut extends React.Component {
             </Row>
           </Grid>
         </Jumbotron>
-        <CategoryBar selectCategory={this.selectCategory} />
+        <CategoryBar selectCategory={this.selectCategory} categories={this.state.activeCategories} />
         <Row>
          {this.showSide()}
         </Row>
