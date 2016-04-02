@@ -4,12 +4,28 @@ import Bluebird from 'bluebird'
 client.LPUSH = Bluebird.promisify(client.LPUSH)
 client.LRANGE = Bluebird.promisify(client.LRANGE)
 
-// these are some dummy functions
-// make sure to delete these if you're done using them
-export const addDummyData = (data) => {
-  return client.LPUSH('myList', data)
+export const addNewAnswer = (answerObj) => {
+  answerObj.id = Date.now()
+  Object.keys(answerObj).forEach((prop) => {
+    const value = typeof answerObj[prop] === 'object' ? JSON.stringify(answerObj[prop]) : answerObj[prop]
+    client.HSET(answerObj.id, prop, value)
+  })
 }
 
-export const getDummyData = () => {
-  return client.LRANGE('myList', 0, -1)
+export const getAllAnswers = (cb) => {
+  client.keys('*', (err, reply) => {
+    if (err) console.log(err)
+    else {
+      let emptyArr = []
+      reply.map((hash) => {
+        client.hgetall(hash, (err, hashObj) => {
+          if (err) console.log(err)
+          else {
+            emptyArr.push(hashObj)
+            if (emptyArr.length === reply.length) cb(emptyArr)
+          }
+        })
+      })
+    }
+  })
 }
