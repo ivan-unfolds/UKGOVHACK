@@ -12,7 +12,10 @@ export default {
       console.log(request.auth.credentials)
       const decodedData = jwt.verify(request.auth.credentials['twitterCookie'], JWT_SECRET)
       console.log(decodedData, decodedData.screenName)
-      reply(decodedData.screenName)
+      reply({
+        screenName: decodedData.screenName,
+        profileImg: decodedData.profile_image_url
+      })
     }
   }
 }
