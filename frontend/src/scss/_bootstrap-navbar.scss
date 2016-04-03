@@ -46,9 +46,19 @@
   .navbar-nav > li > a {
     color: #fff;
   }
+
+  .navbar-right {
+    margin-top: 3em;
+  }
+
   .navbar-brand {
     height: $header-height;
     width: $logo-size;
+    margin-bottom: 1em;
+
+  .header-spacing {
+    height: 115px;
+  }
 
     img {
       margin-top: $logo-offset;
@@ -86,7 +96,7 @@
 
   p {
     margin: 2em 0;
-    color: #fff;
+    color: yellow;
   }
 
   .navbar-brand {
