@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router'
 
-const styles = {color: 'yellow', marginTop: '3.3em' }
+const styles = {color: 'yellow' }
 
 export default class Header extends React.Component {
   constructor () {

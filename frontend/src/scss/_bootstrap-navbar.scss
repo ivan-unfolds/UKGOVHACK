@@ -46,6 +46,11 @@
   .navbar-nav > li > a {
     color: #fff;
   }
+
+  .navbar-right {
+    margin-top: 3em;
+  }
+
   .navbar-brand {
     height: $header-height;
     width: $logo-size;
@@ -91,7 +96,7 @@
 
   p {
     margin: 2em 0;
-    color: #fff;
+    color: yellow;
   }
 
   .navbar-brand {
