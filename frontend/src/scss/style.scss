@@ -10,3 +10,17 @@ body {
   font-family: $main-font;
   margin-bottom: $footer-height;
 }
+
+.yellow {
+  color: yellow;
+}
+
+.btn {
+  outline: none!important;
+  margin: 0 1em 2em;
+  transition: 0.3s ease;
+}
+
+.btn-primary, .btn-primary.focus, .btn-primary:focus {
+  background-color: #4322FF;
+}

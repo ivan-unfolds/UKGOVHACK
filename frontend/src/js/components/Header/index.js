@@ -2,14 +2,23 @@ import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router'
 
+const styles = {color: 'yellow' }
+
 export default class Header extends React.Component {
   constructor () {
     super()
     this.state = { menuOpen: false }
   }
 
+  checkCookie () {
+    if (document.cookie.indexOf('reactCookie') > -1) {
+      return <p style={styles}>{'Welcome ' + this.props.userDetails.screenName + ', share your opinion'}</p>
+    } else {
+      return <a style={styles} href='/login-with-twitter'>login with twitter</a>
+    }
+  }
+
   render () {
-    console.log(this.props)
     return (
       <div>
         <Navbar
@@ -27,18 +36,9 @@ export default class Header extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse pullRight>
             <Nav pullRight>
-              {this.props.menuItems.map((item) => {
-                return (
-                  <li onClick={() => { this.setState({ menuOpen: false }) }}
-                    role='presentation'
-                    key={item + '-li'}>
-                    <Link key={item} to={'/' + item}>{item}</Link>
-                  </li>
-                )
-              })}
+              {this.checkCookie()}
             </Nav>
           </Navbar.Collapse>
-          <p style={{color: 'yellow'}} className='user-logged-in'>{this.props.auth ? 'Welcome ' + this.props.userDetails.screenName + ', share your opinion' : ''}</p>
         </Navbar>
       </div>
     )

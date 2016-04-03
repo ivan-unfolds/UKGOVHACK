@@ -7,28 +7,34 @@ import Answer from '../Answer/index.js'
 export default class InOut extends React.Component {
   constructor () {
     super()
-    this.state = { side: 'NONE', activeCategories: [] }
+    this.state = { side: 'NONE', activeCategories: [], answers: [] }
     this.changeSide = this.changeSide.bind(this)
     this.selectCategory = this.selectCategory.bind(this)
   }
 
-  changeSide (side) {
-    this.setState({ side: side })
+  changeSide (selectedSide) {
+    this.setState({
+      side: selectedSide,
+      answers: this.props.answers.filter((answer) => {
+        return answer.side === selectedSide
+      })
+    })
   }
 
   showSide () {
     if (this.state.side === 'NONE') {
       return <Instructions />
-    } else if (this.state.side === 'IN') {
+    } else {
       return (
         <div>
-          <p>arguments for stayin in the EU</p>
-          <Answer />
-          <Answer />
+          <p>arguments for stayin out the EU</p>
+          {this.state.answers.map((answer) => {
+            return (
+              <Answer key={answer.id} answerObj={answer} upVoteFunc={() => { console.log('upvoted') }} allComments={true} />
+            )
+          })}
         </div>
-        )
-    } else {
-      return <p>arguments for stayin out the EU</p>
+      )
     }
   }
 
@@ -37,10 +43,18 @@ export default class InOut extends React.Component {
       const categories = this.state.activeCategories.filter((el) => {
         return el !== category
       })
-      this.setState({ activeCategories: categories })
+      const answers = this.props.answers.filter((answer) => {
+        return answer.tags.indexOf(category) > -1 && this.state.side === answer.side
+      })
+      this.setState({ activeCategories: categories,
+                      answers: answers})
     } else {
       const categories = this.state.activeCategories.concat([category])
-      this.setState({ activeCategories: categories })
+      const answers = this.props.answers.filter((answer) => {
+        return answer.tags.indexOf(category) > -1 && this.state.side === answer.side
+      })
+      this.setState({ activeCategories: categories,
+                      answers: answers})
     }
   }
 
@@ -52,10 +66,10 @@ export default class InOut extends React.Component {
           <Grid>
             <Row>
               <Col xs={6}>
-                <div onClick={() => { this.changeSide('IN') }}>IN</div>
+                <div onClick={() => { this.changeSide('in') }}>IN</div>
               </Col>
               <Col xs={6}>
-                <div onClick={() => { this.changeSide('OUT') }}>OUT</div>
+                <div onClick={() => { this.changeSide('out') }}>OUT</div>
               </Col>
             </Row>
           </Grid>

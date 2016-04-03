@@ -22,11 +22,17 @@ export default class Home extends React.Component {
     })
   }
 
+  checkCookie () {
+    return document.cookie.indexOf('reactCookie') > -1
+  }
+
   componentDidMount () {
     const xhr = new XMLHttpRequest() // eslint-disable-line
     xhr.addEventListener('load', (response) => {
+      const rawAnswers = response.target.response
       this.setState({
-        answers: JSON.parse(response.target.response).map((answer) => {
+        answers: JSON.parse(rawAnswers).map((answer) => {
+          answer.comments = JSON.parse(answer.comments)
           return {
             ...answer,
             tags: JSON.parse(answer.tags)
@@ -41,7 +47,7 @@ export default class Home extends React.Component {
   render () {
     console.log('STATE ANSWERS: ', this.state.answers)
     return (
-      <InOut />
+      <InOut answers={this.state.answers} />
     )
   }
 }
