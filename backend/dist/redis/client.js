@@ -10,9 +10,13 @@ var _redis2 = _interopRequireDefault(_redis);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var DB_URL = process.env.REDISTOGO_URL || 'redis://localhost:6379';
-var DB_NUM = process.env.REDIS_DB || 0;
-var client = _redis2.default.createClient(DB_URL);
+if (process.env.REDISTOGO_URL) {
+  var rtg = require('url').parse(process.env.REDISTOGO_URL);
+  var client = require('redis').createClient(rtg.port, rtg.hostname);
+  client.auth(rtg.auth.split(':')[1]);
+} else {
+  var client = require('redis').createClient();
+}
 
 client.select(DB_NUM, function () {
   console.log('Connected to Redis database num ', DB_NUM, ' on ', DB_URL);
