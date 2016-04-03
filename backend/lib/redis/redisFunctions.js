@@ -33,6 +33,15 @@ export const getAllAnswers = (cb) => {
   })
 }
 
+export const removeHash = (hash, cb) => {
+  client.del(hash, (err, reply) => {
+    if (err) console.log(err)
+    else {
+      cb(reply)
+    }
+  })
+}
+
 export const increaseScore = (hash) => {
   client.hgetall(hash, (err, hashObj) => {
     if (err) console.log(err)
