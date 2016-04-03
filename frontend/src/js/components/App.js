@@ -21,7 +21,7 @@ export default class App extends React.Component {
 
   componentWillMount () {
     if (document.cookie.indexOf('reactCookie') > -1) {
-      axios.get('/user-details').then(response => {
+      axios.get('/user-details').then((response) => {
         this.setState({
           userDetails: response.data,
           auth: true

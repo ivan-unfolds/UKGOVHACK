@@ -1,5 +1,6 @@
 import React from 'react'
 import InOut from '../InOut/index.js'
+import axios from 'axios'
 
 export default class Home extends React.Component {
 
@@ -8,6 +9,17 @@ export default class Home extends React.Component {
     this.state = {
       answers: []
     }
+  }
+
+  upVoteFunc (answerID) {
+    this.state.answers.filter((answer) => {
+      console.log('FILTERING ANSWeR: ', answer)
+      return answer.id === answerID
+    })[0].score++
+    this.setState(this.state)
+    axios.get('/changeScore/' + answerID).then((response) => {
+      console.log('SUCCESSS', response)
+    })
   }
 
   componentDidMount () {
@@ -27,6 +39,7 @@ export default class Home extends React.Component {
   }
 
   render () {
+    console.log('STATE ANSWERS: ', this.state.answers)
     return (
       <InOut />
     )

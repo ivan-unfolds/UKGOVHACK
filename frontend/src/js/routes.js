@@ -14,6 +14,6 @@ export default (
     <Route path='/about' component={About} />
     <Route path='/contact' component={Contact} />
     <Route path='/newAnswer' component={NewAnswer} />
-    <Route path='answerPage' component={AnswerPage} />
+    <Route path='answer/:answerID' component={AnswerPage} />
   </Route>
 )
