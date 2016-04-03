@@ -82,7 +82,7 @@ class Answer extends React.Component {
           ? '' : <Row>
             <Col xs={1} />
             <Col style={styles.comment} xs={10}>
-              <Link to={'answerPage'}>Click here to see the whole discussion...</Link>
+              <Link to={'answer/' + answerObj.id}>Click here to see the whole discussion...</Link>
             </Col>
             <Col xs={1} />
           </Row>}

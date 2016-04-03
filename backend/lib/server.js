@@ -20,13 +20,14 @@ import NewAnswer from './routes/NewAnswer.js'
 import GetAllAnswers from './routes/GetAllAnswers.js'
 import Login from './routes/Login.js'
 import UserDetails from './routes/UserDetails.js'
+import ChangeScore from './routes/ChangeScore.js'
 
 // auth strategies
 import { TwitterCookie, TwitterOauth } from './authStrategies/twitterAuthStrategies.js'
 
 const ConnectionSettings = { port, routes: {cors: true} }
 const Plugins = [ Inert, Bell, AuthCookie ]
-const Routes = [ Login, UserDetails, NewAnswer, GetAllAnswers, Images, ReactUrls, Scripts ]
+const Routes = [ Login, UserDetails, NewAnswer, GetAllAnswers, Images, ReactUrls, Scripts, ChangeScore ]
 
 server.connection(ConnectionSettings)
 server.register(Plugins, handlePlugins)
