@@ -1,11 +1,15 @@
 import redis from 'redis'
 
-const DB_URL = process.env.REDIS_URL || 'redis://localhost:6379'
-const DB_NUM = process.env.REDIS_DB || 0
-const client = redis.createClient(DB_URL)
+if (process.env.REDISTOGO_URL) {
+  var rtg = require('url').parse(process.env.REDISTOGO_URL);
+  var client = require('redis').createClient(rtg.port, rtg.hostname)
+  client.auth(rtg.auth.split(':')[1])
+} else {
+  var client = require('redis').createClient()
+}
 
-client.select(DB_NUM, () => {
-  console.log('Connected to Redis database num ', DB_NUM, ' on ', DB_URL)
+client.select(0, () => {
+  console.log('Connected to Redis database num 0')
 })
 
 export default client

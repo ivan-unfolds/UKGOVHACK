@@ -32,7 +32,5 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-backend/dist
-public/app.js
 dump.rdb
 config.env
