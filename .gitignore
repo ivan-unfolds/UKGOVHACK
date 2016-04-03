@@ -34,3 +34,5 @@ node_modules
 
 dump.rdb
 config.env
+backend/dist
+public/app.js
