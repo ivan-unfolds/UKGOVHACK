@@ -24,14 +24,6 @@ export default class InOut extends React.Component {
   showSide () {
     if (this.state.side === 'NONE') {
       return <Instructions />
-    } else if (this.state.side === 'IN') {
-      return (
-        <div>
-          <p>arguments for stayin in the EU</p>
-          <Answer />
-          <Answer />
-        </div>
-        )
     } else {
       return (
         <div>
@@ -51,10 +43,18 @@ export default class InOut extends React.Component {
       const categories = this.state.activeCategories.filter((el) => {
         return el !== category
       })
-      this.setState({ activeCategories: categories })
+      const answers = this.props.answers.filter((answer) => {
+        return answer.tags.indexOf(category) > -1 && this.state.side === answer.side
+      })
+      this.setState({ activeCategories: categories,
+                      answers: answers})
     } else {
       const categories = this.state.activeCategories.concat([category])
-      this.setState({ activeCategories: categories })
+      const answers = this.props.answers.filter((answer) => {
+        return answer.tags.indexOf(category) > -1 && this.state.side === answer.side
+      })
+      this.setState({ activeCategories: categories,
+                      answers: answers})
     }
   }
 

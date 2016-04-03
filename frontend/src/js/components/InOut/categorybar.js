@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 
-const categories = ['Immigration', 'Freedom of Movement', 'Health', 'Economy']
+const categories = ['immigration', 'Freedom of Movement', 'employment', 'economy']
 
 export default class CategoryBar extends React.Component {
   styleToggle (category, categories) {
