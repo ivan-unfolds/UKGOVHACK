@@ -18,8 +18,8 @@ if (process.env.REDISTOGO_URL) {
   var client = require('redis').createClient();
 }
 
-client.select(DB_NUM, function () {
-  console.log('Connected to Redis database num ', DB_NUM, ' on ', DB_URL);
+client.select(0, function () {
+  console.log('Connected to Redis database num 0');
 });
 
 exports.default = client;
