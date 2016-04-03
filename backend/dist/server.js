@@ -34,9 +34,9 @@ var _Scripts = require('./routes/Scripts.js');
 
 var _Scripts2 = _interopRequireDefault(_Scripts);
 
-var _NewAnswer = require('./routes/NewAnswer.js');
+var _newAnswer = require('./routes/newAnswer.js');
 
-var _NewAnswer2 = _interopRequireDefault(_NewAnswer);
+var _newAnswer2 = _interopRequireDefault(_newAnswer);
 
 var _GetAllAnswers = require('./routes/GetAllAnswers.js');
 
@@ -50,9 +50,9 @@ var _UserDetails = require('./routes/UserDetails.js');
 
 var _UserDetails2 = _interopRequireDefault(_UserDetails);
 
-var _ChangeScore = require('./routes/ChangeScore.js');
+var _changeScore = require('./routes/changeScore.js');
 
-var _ChangeScore2 = _interopRequireDefault(_ChangeScore);
+var _changeScore2 = _interopRequireDefault(_changeScore);
 
 var _twitterAuthStrategies = require('./authStrategies/twitterAuthStrategies.js');
 
@@ -77,7 +77,7 @@ var port = process.env.PORT || 4000;
 
 var ConnectionSettings = { port: port, routes: { cors: true } };
 var Plugins = [_inert2.default, _bell2.default, _hapiAuthCookie2.default];
-var Routes = [_Login2.default, _UserDetails2.default, _NewAnswer2.default, _GetAllAnswers2.default, _Images2.default, _ReactUrls2.default, _Scripts2.default, _ChangeScore2.default];
+var Routes = [_Login2.default, _UserDetails2.default, _newAnswer2.default, _GetAllAnswers2.default, _Images2.default, _ReactUrls2.default, _Scripts2.default, _changeScore2.default];
 
 server.connection(ConnectionSettings);
 server.register(Plugins, _serverHelpers.handlePlugins);

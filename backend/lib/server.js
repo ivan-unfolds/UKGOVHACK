@@ -16,11 +16,11 @@ import AuthCookie from 'hapi-auth-cookie'
 import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
-import NewAnswer from './routes/NewAnswer.js'
+import NewAnswer from './routes/newAnswer.js'
 import GetAllAnswers from './routes/GetAllAnswers.js'
 import Login from './routes/Login.js'
 import UserDetails from './routes/UserDetails.js'
-import ChangeScore from './routes/ChangeScore.js'
+import ChangeScore from './routes/changeScore.js'
 
 // auth strategies
 import { TwitterCookie, TwitterOauth } from './authStrategies/twitterAuthStrategies.js'
