@@ -9,6 +9,7 @@ export default class Home extends React.Component {
     this.state = {
       answers: []
     }
+    this.upVoteFunc = this.upVoteFunc.bind(this)
   }
 
   upVoteFunc (answerID) {
@@ -47,7 +48,7 @@ export default class Home extends React.Component {
   render () {
     console.log('STATE ANSWERS: ', this.state.answers)
     return (
-      <InOut answers={this.state.answers} />
+      <InOut answers={this.state.answers} upVoteFunc={this.upVoteFunc} />
     )
   }
 }

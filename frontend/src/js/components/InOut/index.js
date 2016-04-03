@@ -17,6 +17,8 @@ export default class InOut extends React.Component {
       side: selectedSide,
       answers: this.props.answers.filter((answer) => {
         return answer.side === selectedSide
+      }).sort((a, b) => {
+        return b.score - a.score
       })
     })
   }
@@ -30,7 +32,7 @@ export default class InOut extends React.Component {
           <p>arguments for stayin out the EU</p>
           {this.state.answers.map((answer) => {
             return (
-              <Answer key={answer.id} answerObj={answer} upVoteFunc={() => { console.log('upvoted') }} allComments={true} />
+              <Answer key={answer.id} answerObj={answer} upVoteFunc={this.props.upVoteFunc.bind(null, answer.id)} allComments={true} />
             )
           })}
         </div>
