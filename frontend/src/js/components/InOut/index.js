@@ -7,13 +7,18 @@ import Answer from '../Answer/index.js'
 export default class InOut extends React.Component {
   constructor () {
     super()
-    this.state = { side: 'NONE', activeCategories: [] }
+    this.state = { side: 'NONE', activeCategories: [], answers: [] }
     this.changeSide = this.changeSide.bind(this)
     this.selectCategory = this.selectCategory.bind(this)
   }
 
-  changeSide (side) {
-    this.setState({ side: side })
+  changeSide (selectedSide) {
+    this.setState({
+      side: selectedSide,
+      answers: this.props.answers.filter((answer) => {
+        return answer.side === selectedSide
+      })
+    })
   }
 
   showSide () {
@@ -28,7 +33,16 @@ export default class InOut extends React.Component {
         </div>
         )
     } else {
-      return <p>arguments for stayin out the EU</p>
+      return (
+        <div>
+          <p>arguments for stayin out the EU</p>
+          {this.state.answers.map((answer) => {
+            return (
+              <Answer key={answer.id} answerObj={answer} upVoteFunc={() => { console.log('upvoted') }} allComments={true} />
+            )
+          })}
+        </div>
+      )
     }
   }
 
@@ -52,10 +66,10 @@ export default class InOut extends React.Component {
           <Grid>
             <Row>
               <Col xs={6}>
-                <div onClick={() => { this.changeSide('IN') }}>IN</div>
+                <div onClick={() => { this.changeSide('in') }}>IN</div>
               </Col>
               <Col xs={6}>
-                <div onClick={() => { this.changeSide('OUT') }}>OUT</div>
+                <div onClick={() => { this.changeSide('out') }}>OUT</div>
               </Col>
             </Row>
           </Grid>
