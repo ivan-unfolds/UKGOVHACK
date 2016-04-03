@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, Button } from 'react-bootstrap'
 import { Link } from 'react-router'
 
 const styles = {color: 'yellow' }
@@ -12,7 +12,14 @@ export default class Header extends React.Component {
 
   checkCookie () {
     if (document.cookie.indexOf('reactCookie') > -1) {
-      return <p style={styles}>{'Welcome ' + this.props.userDetails.screenName + ', share your opinion'}</p>
+      return (
+        <div>
+        <p style={styles}>{'Welcome ' + this.props.userDetails.screenName}</p>
+        <Link to={ '/newAnswer' }>
+          <Button bsStyle='success' >share your opinion</Button>
+        </Link>
+        </div>
+      )
     } else {
       return <a style={styles} href='/login-with-twitter'>login with twitter</a>
     }
