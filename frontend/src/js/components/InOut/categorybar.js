@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap'
 export default class CategoryBar extends React.Component {
   styleToggle (category, categories) {
     if (categories.indexOf(category) > -1) {
-      return 'info'
+      return 'primary'
     } else {
       return 'default'
     }

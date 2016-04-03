@@ -10,6 +10,10 @@ export default class Home extends React.Component {
     }
   }
 
+  checkCookie () {
+    return document.cookie.indexOf('reactCookie') > -1
+  }
+
   componentDidMount () {
     const xhr = new XMLHttpRequest() // eslint-disable-line
     xhr.addEventListener('load', (response) => {

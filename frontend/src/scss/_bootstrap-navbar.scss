@@ -49,6 +49,11 @@
   .navbar-brand {
     height: $header-height;
     width: $logo-size;
+    margin-bottom: 1em;
+
+  .header-spacing {
+    height: 115px;
+  }
 
     img {
       margin-top: $logo-offset;

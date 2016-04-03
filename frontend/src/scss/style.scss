@@ -10,3 +10,12 @@ body {
   font-family: $main-font;
   margin-bottom: $footer-height;
 }
+
+.btn {
+  outline: none!important;
+  margin: 0 1em 2em;
+}
+
+.btn-primary, .btn-primary.focus, .btn-primary:focus {
+  background-color: #4322FF;
+}
