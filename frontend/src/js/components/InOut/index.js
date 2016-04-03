@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Row, Col, Jumbotron } from 'react-bootstrap'
 import Instructions from './instructions.js'
 import CategoryBar from './categorybar.js'
+import Answer from '../Answer/index.js'
 
 export default class InOut extends React.Component {
   constructor () {
@@ -19,7 +20,13 @@ export default class InOut extends React.Component {
     if (this.state.side === 'NONE') {
       return <Instructions />
     } else if (this.state.side === 'IN') {
-      return <p>arguments for stayin in the EU</p>
+      return (
+        <div>
+          <p>arguments for stayin in the EU</p>
+          <Answer />
+          <Answer />
+        </div>
+        )
     } else {
       return <p>arguments for stayin out the EU</p>
     }
