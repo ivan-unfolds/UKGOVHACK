@@ -27,7 +27,7 @@ export default class Header extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse pullRight>
             <Nav pullRight>
-              {this.props.menuItems.map(item => {
+              {this.props.menuItems.map((item) => {
                 return (
                   <li onClick={() => { this.setState({ menuOpen: false }) }}
                     role='presentation'
