@@ -6,7 +6,7 @@
   "scripts": {
     "nodemon": "nodemon backend/lib/server.js --exec babel-node --presets es2015,stage-1",
     "server-build": "babel backend/lib -d backend/dist --presets es2015,stage-1",
-    "production-serve": "node backend/dist/server.js",
+    "start": "node backend/dist/server.js",
     "dev": "webpack-dev-server --hot --inline --content-base public/",
     "watch": "webpack --watch --progress"
   },
