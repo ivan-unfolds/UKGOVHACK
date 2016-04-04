@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Col, Jumbotron } from 'react-bootstrap'
+import { Grid, Row, Col, Jumbotron, Button } from 'react-bootstrap'
 import Instructions from './instructions.js'
 import CategoryBar from './categorybar.js'
 import Answer from '../Answer/index.js'
@@ -68,10 +68,10 @@ export default class InOut extends React.Component {
           <Grid>
             <Row>
               <Col xs={6}>
-                <div onClick={() => { this.changeSide('in') }}>IN</div>
+                <div><Button onClick={() => { this.changeSide('in') }} bsStyle='info'>IN</Button></div>
               </Col>
               <Col xs={6}>
-                <div onClick={() => { this.changeSide('out') }}>OUT</div>
+                <div><Button onClick={() => { this.changeSide('out') }} bsStyle='info'>OUT</Button></div>
               </Col>
             </Row>
           </Grid>
