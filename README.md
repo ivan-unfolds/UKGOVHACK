@@ -1,18 +1,18 @@
 # IN or OUT
 
+This app was made in two days for the UKGovHack Hackathon in March 2016 by [andrewMacMurray](https://github.com/andrewMacmurray), [oturnermajor](https://github.com/oturnermajor), [ivanmauricio](https://github.com/ivanmauricio) and [RobStallion](https://github.com/RobStallion). It was built using React.js and Node.js with a Redis database.
+
+It won first prize in its category (apps to do with the EU referendum).
+
+### The Problem
+
 A lot of people know that the EU referendum is hugely important for the future of our country, but they are not sure about what the most important facts are surrounding the two options that we face. 
 
 IN or OUT aims to help solve this problem by providing a platform for any members of the public to publish answers. These answers should be provided with clear reference to sources and citations, and should be tagged with whatever categories are applicable (economy, immigration, travel, etc.)
 
 Other people who are unsure can then visit the site and quickly see which answers have been upvoted most. They can also sort by the categories to find the answers that will affect them most. 
 
-Check out the project (work in progress) on our [Heroku Page](http://inorout.herokuapp.com)
-
-### The Problem
-- People who want to vote on the referendum but don’t know much about the referendum arguments or pros and cons. 
-- They have some opinions and have heard some arguments about the referendum, but they don’t know which of these arguments are convincing… 
-- They want to find out the most important, most convincing arguments for and against. They only want arguments that are reliable and backed up with reliable facts. They don’t want to have to do the digging and leg-work themselves.
-
+Check out the project on our [Heroku Page](http://inorout.herokuapp.com)
 
 ### USER EPICS
 - As a conscientious voter with limited time, I need to quickly find the concise and reliable information about the referendum.
